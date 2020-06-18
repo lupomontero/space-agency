@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Space Agency Callbacks Example</title>
+</head>
+<body>
+<button type="button" name="button">Run</button>
+<pre></pre>
+<script type="module">
+import { run } from './example.mjs';
+
+const originalConsoleLog = console.log;
+console.log = (...args) => {
+  originalConsoleLog.apply(console, args);
+  document.body.querySelector('pre').innerText += `${args.join(' ')}\n`;
+};
+
+document.querySelector('button').addEventListener('click', run);
+</script>
+</body>
+</html>

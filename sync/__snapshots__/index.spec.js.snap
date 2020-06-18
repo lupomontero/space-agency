@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration should run the whole mission in over 20 seconds! 1`] = `
+Array [
+  Array [
+    "Building rocket...",
+  ],
+  Array [
+    "Rocket built!",
+  ],
+  Array [
+    "Fetching crew...",
+  ],
+  Array [
+    "Crew ready!",
+  ],
+  Array [
+    "Getting fuel...",
+  ],
+  Array [
+    "Fuel ready!",
+  ],
+  Array [
+    "Booking launch pad...",
+  ],
+  Array [
+    "Launch pad booked!",
+  ],
+  Array [
+    "Adding rocket to launch pad...",
+  ],
+  Array [
+    "Added rocket to launch pad!",
+  ],
+  Array [
+    "Adding crew...",
+  ],
+  Array [
+    "Crew ready!",
+  ],
+  Array [
+    "Adding fuel...",
+  ],
+  Array [
+    "Fuel ready!",
+  ],
+  Array [
+    "Firing engine 0...",
+  ],
+  Array [
+    "Altitude 10km | Speed 700km/h",
+  ],
+  Array [
+    "Altitude 20km | Speed 1400km/h",
+  ],
+  Array [
+    "Altitude 30km | Speed 2100km/h",
+  ],
+  Array [
+    "Altitude 40km | Speed 2800km/h",
+  ],
+  Array [
+    "Altitude 50km | Speed 3500km/h",
+  ],
+  Array [
+    "Altitude 60km | Speed 4200km/h",
+  ],
+  Array [
+    "Altitude 70km | Speed 4900km/h",
+  ],
+  Array [
+    "Altitude 80km | Speed 5600km/h",
+  ],
+  Array [
+    "Altitude 90km | Speed 6300km/h",
+  ],
+  Array [
+    "Altitude 100km | Speed 7000km/h",
+  ],
+  Array [
+    "Engine 0 cut-off...",
+  ],
+  Array [
+    "Engine 0 cut-off completed...",
+  ],
+  Array [
+    "Running stage 0 separation...",
+  ],
+  Array [
+    "Stage 0 separation completed...",
+  ],
+  Array [
+    "Firing engine 1...",
+  ],
+  Array [
+    "Altitude 110km | Speed 7700km/h",
+  ],
+  Array [
+    "Altitude 120km | Speed 8400km/h",
+  ],
+  Array [
+    "Altitude 130km | Speed 9100km/h",
+  ],
+  Array [
+    "Altitude 140km | Speed 9800km/h",
+  ],
+  Array [
+    "Altitude 150km | Speed 10500km/h",
+  ],
+  Array [
+    "Altitude 160km | Speed 11200km/h",
+  ],
+  Array [
+    "Altitude 170km | Speed 11900km/h",
+  ],
+  Array [
+    "Altitude 180km | Speed 12600km/h",
+  ],
+  Array [
+    "Altitude 190km | Speed 13300km/h",
+  ],
+  Array [
+    "Altitude 200km | Speed 14000km/h",
+  ],
+  Array [
+    "Altitude 210km | Speed 14700km/h",
+  ],
+  Array [
+    "Altitude 220km | Speed 15400km/h",
+  ],
+  Array [
+    "Altitude 230km | Speed 16100km/h",
+  ],
+  Array [
+    "Altitude 240km | Speed 16800km/h",
+  ],
+  Array [
+    "Altitude 250km | Speed 17500km/h",
+  ],
+  Array [
+    "Altitude 260km | Speed 18200km/h",
+  ],
+  Array [
+    "Altitude 270km | Speed 18900km/h",
+  ],
+  Array [
+    "Altitude 280km | Speed 19600km/h",
+  ],
+  Array [
+    "Altitude 290km | Speed 20300km/h",
+  ],
+  Array [
+    "Altitude 300km | Speed 21000km/h",
+  ],
+  Array [
+    "Altitude 310km | Speed 21700km/h",
+  ],
+  Array [
+    "Altitude 320km | Speed 22400km/h",
+  ],
+  Array [
+    "Altitude 330km | Speed 23100km/h",
+  ],
+  Array [
+    "Altitude 340km | Speed 23800km/h",
+  ],
+  Array [
+    "Altitude 350km | Speed 24500km/h",
+  ],
+  Array [
+    "Altitude 360km | Speed 25200km/h",
+  ],
+  Array [
+    "Altitude 370km | Speed 25900km/h",
+  ],
+  Array [
+    "Altitude 380km | Speed 26600km/h",
+  ],
+  Array [
+    "Altitude 390km | Speed 27300km/h",
+  ],
+  Array [
+    "Altitude 400km | Speed 28000km/h",
+  ],
+  Array [
+    "Engine 1 cut-off...",
+  ],
+  Array [
+    "Engine 1 cut-off completed...",
+  ],
+  Array [
+    "Running stage 1 separation...",
+  ],
+  Array [
+    "Stage 1 separation completed...",
+  ],
+  Array [
+    "Total time: 20 secs",
+  ],
+]
+`;
