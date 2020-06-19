@@ -102,7 +102,7 @@ muchos motivos, pero principalmente 2:
   un solo hilo, y mientras estemos bloqueando el hilo nuestro servidor no podrá
   atender nuevas consultas :shit:
 
-[Acá puedes ver en tu navegador](https://lupomontero.github.io/space-agency/sync/)
+[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/sync/)
 como la ejecución de nuestro programa bloquea el hilo y no permite que se
 actualice la interfaz hasta que no termine.
 
@@ -173,6 +173,12 @@ ejemplo más obvio de cómo aumenta la claridad de nuestro código
 [acá](./callbacks/example-hell.mjs) puedes ver una _misión_ de ejemplo usando
 este enfoque _naive_ de callbacks produciendo un _callback hell_ horroroso
 :fire:
+
+[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/)
+como evitamos bloquear el hilo con callbacks, pero todavía hacemos las tareas de
+forma secuencial, como en el ejemplo de arriba. Fíjate que ahora que ya no
+bloqueamos el hilo el navegador ahora sí tiene la oportunidad de actualizar el
+DOM durante la ejecución.
 
 ##### Promesas encadenadas acumulando resultados
 
@@ -289,6 +295,12 @@ const initMission = async () => {
 };
 ```
 
+Como referencia de uso de `async/await`, en las
+[pruebas unitarias de la versión que usa promesas](./promises/index.spec.js) de
+nuestra librería `space-agency` puedes ver como se ha usado en los tests,
+quedando iguales que los tests de la versión síncrona, pero con la adición de
+las palabras claves `async` y `await`.
+
 ### Ejecución concurrente (asíncrona y no-bloqueante)
 
 Después de varias misiones, vamos aprendiendo sobre nuestro rol de
@@ -368,7 +380,11 @@ const initMission = cb => concurrent({
 }, cb);
 ```
 
-[Acá puedes ver en tu navegador](https://lupomontero.github.io/space-agency/callbacks/)
+[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/)
+como evitamos bloquear el hilo con callbacks, y hacemos las tareas de forma
+concurrente, como en el ejemplo de arriba. Fíjate que ahora que hacemos las
+tareas de `initMission` de forma concurrente, el tiempo total de la _misión_ ha
+disminuido considerablemente (de veintitantos segundos a 11!).
 
 #### `Promise.all()`
 
@@ -404,7 +420,9 @@ rechazada, la promesa que las engloba (la retornada por `Promise.all`) será
 también rechazada.
 
 
-[Acá puedes ver en tu navegador](https://lupomontero.github.io/space-agency/promises/)
+[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/promises/)
+como se comporta esta implementación que hace uso de promesas y concurrencia con
+`Promise.all` como en el ejemplo de arriba.
 
 ## Implementaciones de ejemplo
 
@@ -427,7 +445,7 @@ también rechazada.
 * [UI - Ejemplo](https://lupomontero.github.io/space-agency/callbacks/)
 * [Código fuente - Ejemplo](./callbacks/example.mjs)
 * [Código fuente - Librería](./callbacks/index.mjs)
-* [Pruebas](./sync/index.spec.js)
+* [Pruebas](./callbacks/index.spec.js)
 
 ### Promesas
 
