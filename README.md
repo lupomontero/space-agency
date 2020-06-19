@@ -3,24 +3,26 @@
 Este repo contiene una serie de ejemplos de ejecución síncrona vs asíncrona en
 JavaScript. En particular los ejemplos están orientados a ilustrar diferentes
 estrategias para _orquestar_ varias tareas asíncronas, no una sola de forma
-aislada, y sus consecuencias.
+aislada.
 
-* [Introducción](#)
-  - [Ejecución secuencial](#)
-    + [Código síncrono bloqueante](#)
-    + [Código asíncrono secuencial no-bloqueante](#)
-      + [Callback Hell](#)
-      + [Promesas encadenadas acumulando resultados](#)
-      + [Promesas encadenadas compartiendo _estado_](#)
-      + [`async/await`](#)
-  - [Ejecución concurrente](#)
-    + [Callbacks refinados](#)
-    + [`Promise.all`](#)
-* [Implementaciones de ejemplo](#)
-  - [Callback Hell](#)
-  - [Callbacks refinados](#)
-  - [Promesas (con callbacks)](#)
-  - [Promesas (con async/await)](#)
+## Índice
+
+* [Introducción](#introducción)
+  - [Ejecución secuencial](#ejecución-secuencial)
+    + [Código síncrono bloqueante](#código-síncrono-bloqueante)
+    + [Código asíncrono secuencial no-bloqueante](#código-asíncrono-secuencial-no-bloqueante)
+      * [Callback Hell](#callback-hell)
+      * [Promesas encadenadas acumulando resultados](#promesas-encadenadas-acumulando-resultados)
+      * [Promesas encadenadas compartiendo _estado_](#promesas-encadenadas-compartiendo-estado)
+      * [`async/await`](#asyncawait)
+  - [Ejecución concurrente (síncrona y no-bloqueante)](#ejecución-concurrente-asíncrona-y-no-bloqueante)
+    + [Callbacks refinados](#callbacks-refinados)
+    + [`Promise.all`](#promiseall)
+* [Implementaciones de ejemplo](#implementaciones-de-ejemplo)
+  - [Síncrona bloqueante](#síncrona-bloqueante)
+  - [Callback Hell](#callback-hell-1)
+  - [Callbacks refinados](#callbacks-refinados-1)
+  - [Promesas](#promesas)
 
 ***
 
@@ -110,7 +112,7 @@ Ok, entonces veamos cómo evitamos _bloquear el hilo_. Los ejemplos a
 continuación muestran varias estrategias para ejecutar las cuatro tareas que
 necesitamos.
 
-#### Callback Hell
+##### Callback Hell
 
 Pasemos a usar la implementación de la librería basada en callbacks. Ahora,
 cuando aterrizamos en el mundo de JavaScript es común caer en situaciones en las
@@ -172,7 +174,7 @@ ejemplo más obvio de cómo aumenta la claridad de nuestro código
 este enfoque _naive_ de callbacks produciendo un _callback hell_ horroroso
 :fire:
 
-#### Promesas encadenadas acumulando resultados
+##### Promesas encadenadas acumulando resultados
 
 Existen varias estrategias para mitigar el _callback hell_, y si nuestra
 intención es ejecutar tareas asíncronas en series, de forma secuencial, podemos
@@ -232,7 +234,7 @@ promesa actual a un objeto que contiene las respuestas de las promesas
 anteriores. De esta manera logramos _juntar_ todos estos valores en un mismo
 _ámbito_, pero la implementación resulta menos elegante...
 
-#### Promesas encadenadas compartiendo _estado_
+##### Promesas encadenadas compartiendo _estado_
 
 Alternativamente a las _promesas encadenadas acumulando resultados_, podemos
 también usar una variable _compartida_ para ir acumulando los resultados,
@@ -268,7 +270,7 @@ const initMission = () => {
 Esta última versión es un poco más _verbose_ y hace uso de
 _estado compartido y mutable_ a través de la variable `results`.
 
-#### `async/await`
+##### `async/await`
 
 Como tercera alternativa a una implementación secuencial no-bloqueante con
 promesas, podemos en este caso hacer uso de `async/await`, que para este caso
@@ -287,7 +289,7 @@ const initMission = async () => {
 };
 ```
 
-### Código asíncrono concurrente no-bloqueante
+### Ejecución concurrente (asíncrona y no-bloqueante)
 
 Después de varias misiones, vamos aprendiendo sobre nuestro rol de
 administradoras de una agencia espacial, y nos damos cuenta de que las cuatro
@@ -403,3 +405,34 @@ también rechazada.
 
 
 [Acá puedes ver en tu navegador](https://lupomontero.github.io/space-agency/promises/)
+
+## Implementaciones de ejemplo
+
+### Síncrona bloqueante
+
+* [UI - Ejemplo](https://lupomontero.github.io/space-agency/sync/)
+* [Código fuente - Ejemplo](./sync/example.mjs)
+* [Código fuente - Librería](./sync/index.mjs)
+* [Pruebas](./sync/index.spec.js)
+
+### Callback hell
+
+* [UI - Ejemplo](https://lupomontero.github.io/space-agency/callbacks/hell.html)
+* [Código fuente - Ejemplo](./callbacks/example-hell.mjs)
+* [Código fuente - Librería](./callbacks/index.mjs)
+* [Pruebas](./callbacks/index.spec.js#L85)
+
+### Callbacks refinados
+
+* [UI - Ejemplo](https://lupomontero.github.io/space-agency/callbacks/)
+* [Código fuente - Ejemplo](./callbacks/example.mjs)
+* [Código fuente - Librería](./callbacks/index.mjs)
+* [Pruebas](./sync/index.spec.js)
+
+### Promesas
+
+* [UI - Ejemplo](https://lupomontero.github.io/space-agency/promises/)
+* [Código fuente - Ejemplo](./promises/example.mjs)
+* [Código fuente - Librería](./promises/index.mjs)
+* [Pruebas](./promises/index.spec.js)
+
