@@ -423,10 +423,38 @@ En caso de que cualquiera de las promesas recibidas por `Promise.all` sea
 rechazada, la promesa que las engloba (la retornada por `Promise.all`) será
 también rechazada.
 
-
 [Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/promises/)
 cómo se comporta esta implementación que hace uso de promesas y concurrencia con
 `Promise.all` como en el ejemplo de arriba.
+
+:warning: Ten en cuenta que a `Promise.all` le pasamos promesas ya creadas. Por
+ejemplo, si le pasamos un arreglo con 500 promesas creadas con `fetch`...
+
+```js
+// Imagina que `users` es una arreglo con 500 elementos...
+const promises = users.map(user => fetch(`/users/${user.id}`));
+
+// Promises es un arreglo con 500 promesas ya iniciadas!!
+Promise.all(promises)
+  .then((results) => {
+    // Las 500 promesas completaron con éxito.
+    // `results` es un arreglo con 500 elementos.
+  })
+  .catch((err) => {
+    // Una de las promesas fue rechazada, pero no sabemos nada sobre las demás.
+    // `err` contiene el error de la promesa rechazada.
+  });
+```
+
+... estaríamos tratando de hacer 500 consultas de red de forma concurrente, lo
+cual nos puede traer otro tipo de problemas, como exceder límites impuestos en
+APIs o simplemente sobrecargar la red o servicio encargado de manejar estas
+consultas. Si tienes curiosidad sobre cómo manejar también el nivel de
+concurrencia, _throttling_, así como manejo de errores más granular (sin
+reventar en caso de que una promesa falle), te invito a explorar la librería
+[`porch`](https://github.com/lupomontero/porch), que justamente se centra en
+estos _issues_. Disclaimer: `porch` no es una librería muy popular, pero la
+conozco como autor, así que un poco de _publicherry_ :cherries: :see_no_evil:
 
 ## Implementaciones de ejemplo
 
@@ -471,3 +499,4 @@ cómo se comporta esta implementación que hace uso de promesas y concurrencia c
 * [Formas de manejar la asincronía en JavaScript - Carlos Azaustre](https://carlosazaustre.es/manejando-la-asincronia-en-javascript)
 * [Event Loop: la naturaleza asincrónica de Javascript - @ubykuo - Medium](https://medium.com/@ubykuo/event-loop-la-naturaleza-asincr%C3%B3nica-de-javascript-78d0a9a3e03d)
 * [Javascript Asíncrono: La guía definitiva - Lemon Code](https://lemoncode.net/lemoncode-blog/2018/1/29/javascript-asincrono)
+* [porch - Promise Orchestrator](https://github.com/lupomontero/porch)
