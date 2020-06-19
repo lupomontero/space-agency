@@ -1,5 +1,16 @@
 import { buildRocket, fetchCrew, getFuel, bookLaunchPad } from './index.mjs';
 
+//
+// Ejecuta funciones asíncronas basadas en callbacks de forma concurrente.
+//
+// Espera que el 1er argumento (`obj`) sea un objeto donde cada propiedad
+// contiene una función que recibe un callback como único argumento.
+//
+// Una vez se hayan completado todas las tareas, se invocará `cb` con un objeto
+// como 2ndo argumento, y este objeto tendrá las mismas propiedades que el
+// objeto que recibimos como input (`obj`) y los valores corresponden al
+// _resultado_ de cada una de las funciones asíncronas.
+//
 const concurrent = (obj, cb) => {
   let hasErrored = false;
   const results = {};
@@ -22,6 +33,18 @@ const concurrent = (obj, cb) => {
   });
 };
 
+//
+// Ejecuta funciones asíncronas basadas en callbacks en series (de forma
+// secuencial).
+//
+// Espera un arreglo de funciones como primer argumento. Estas funciones reciben
+// un callback como único argumento.
+//
+// Una vez se hayan completado todas las tareas, se invocará `cb` con un arreglo
+// como 2ndo argumento, y este arreglo tendrá el mismo número de elementos que
+// el arreglo que recibimos como input (`fns`), y los valores corresponden al
+// _resultado_ de cada una de las funciones asíncronas.
+//
 const series = (fns, cb) => {
   const recurse = (remaining, memo = []) => {
     if (!remaining.length) {

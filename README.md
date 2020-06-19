@@ -15,7 +15,7 @@ aislada.
       * [Promesas encadenadas acumulando resultados](#promesas-encadenadas-acumulando-resultados)
       * [Promesas encadenadas compartiendo _estado_](#promesas-encadenadas-compartiendo-estado)
       * [`async/await`](#asyncawait)
-  - [Ejecución concurrente (síncrona y no-bloqueante)](#ejecución-concurrente-asíncrona-y-no-bloqueante)
+  - [Ejecución concurrente (asíncrona y no-bloqueante)](#ejecución-concurrente-asíncrona-y-no-bloqueante)
     + [Callbacks refinados](#callbacks-refinados)
     + [`Promise.all`](#promiseall)
 * [Implementaciones de ejemplo](#implementaciones-de-ejemplo)
@@ -368,7 +368,8 @@ repetición y maquinaria para determinar cuándo se han terminado las tareas,
 además de necesitar un mecanismo para compartir o acumular un resultado final.
 Por eso la necesidad de librerías o herramientas para este tipo de estrategias.
 
-Como ejemplo, acá pueden ver un par de _helpers_ que usa la impementación
+Como ejemplo, acá pueden ver un par de _helpers_ ([`concurrent`](./callbacks/example.mjs#L3)
+y [`series`](./callbacks/example.mjs#L36)) que usa la impementación
 modelo del ejemplo de callbacks para abstraer ejecución en serie y concurrente.
 Usando estas utilidades, podríamos llegar a expresar la intención de ejecutar
 una conjunto de tareas de forma concurrente con algo así:
