@@ -1,9 +1,15 @@
 # space-agency
 
-Este repo contiene una serie de ejemplos de ejecución síncrona vs asíncrona en
-JavaScript. En particular los ejemplos están orientados a ilustrar diferentes
-estrategias para _orquestar_ varias tareas asíncronas, no una sola de forma
-aislada.
+Este repo contiene una serie de ejemplos de ejecución _síncrona_ vs _asíncrona_,
+así como _secuencial_ (en _series_) vs _concurrente_ en JavaScript. En
+particular los ejemplos están orientados a ilustrar diferentes estrategias para
+_orquestar_ varias tareas asíncronas, y no una sola de forma aislada.
+
+:information_source: Si todavía no estás familiarizada con los conceptos básicos
+de _asíncronía_, _callbacks_ y _promesas_ en JavaScript, no pasa nada, pero te
+recomiendo comenzar por explorar los [links](#links) del final, donde
+encontrarás otros recursos que pueden servir de introducción antes de entrar a
+hablar de cómo _orquestar_ varias operaciones asíncronas en conjunto.
 
 ## Índice
 
