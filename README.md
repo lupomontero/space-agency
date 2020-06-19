@@ -174,7 +174,7 @@ ejemplo más obvio de cómo aumenta la claridad de nuestro código
 este enfoque _naive_ de callbacks produciendo un _callback hell_ horroroso
 :fire:
 
-[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/)
+[Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/hell.html)
 como evitamos bloquear el hilo con callbacks, pero todavía hacemos las tareas de
 forma secuencial, como en el ejemplo de arriba. Fíjate que ahora que ya no
 bloqueamos el hilo el navegador ahora sí tiene la oportunidad de actualizar el
@@ -324,9 +324,10 @@ tareas.
 
 Hasta la llegada de las promesas a JavaScript, la orquestación de tareas
 asíncronas era un _pain_ que el lenguaje en sí no terminaba de solucionar, y
-tocaba apoyarse de librerías como `async` de Caolan McMahon, que durante mucho
-tiempo fue la librería más descargada en `npm`, para contar con abstracciones
-que nos permirieran _orquestar_ operaciones asíncronas basadas en _callbacks_.
+tocaba apoyarse de librerías como [`async`](https://www.npmjs.com/package/async)
+de [Caolan McMahon](https://github.com/caolan), que durante mucho tiempo fue la
+librería más descargada en `npm`, para contar con abstracciones que nos
+permirieran _orquestar_ operaciones asíncronas basadas en _callbacks_.
 
 La idea, en la ejecución concurrente de funciones asíncronas con callbacks, es
 iniciar todas las tareas dentro del mismo ciclo del _bucle de eventos_ (_event
@@ -454,3 +455,16 @@ como se comporta esta implementación que hace uso de promesas y concurrencia co
 * [Código fuente - Librería](./promises/index.mjs)
 * [Pruebas](./promises/index.spec.js)
 
+
+## Links
+
+* [Callbacks - Laboratoria/bootcamp](https://github.com/Laboratoria/bootcamp/tree/master/topics/javascript/08-async/01-callbacks)
+* [Promesas - Laboratoria/bootcamp](https://github.com/Laboratoria/bootcamp/tree/master/topics/javascript/08-async/05-promises)
+* [Función Callback - MDN](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
+* [Promise - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise)
+* [Promise.all - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Promise/all)
+* [Loupe](http://latentflip.com/loupe/)
+* [What the heck is the event loop anyway? | Philip Roberts | JSConf EU - YouTube](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+* [Formas de manejar la asincronía en JavaScript - Carlos Azaustre](https://carlosazaustre.es/manejando-la-asincronia-en-javascript)
+* [Event Loop: la naturaleza asincrónica de Javascript - @ubykuo - Medium](https://medium.com/@ubykuo/event-loop-la-naturaleza-asincr%C3%B3nica-de-javascript-78d0a9a3e03d)
+* [Javascript Asíncrono: La guía definitiva - Lemon Code](https://lemoncode.net/lemoncode-blog/2018/1/29/javascript-asincrono)
