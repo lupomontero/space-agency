@@ -31,6 +31,6 @@ export const run = () => {
 };
 
 
-if (process.env.NODE_ENV !== 'test') {
+if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
   run();
 }

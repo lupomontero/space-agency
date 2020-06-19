@@ -16,7 +16,9 @@ console.log = (...args) => {
   document.body.querySelector('pre').innerText += `${args.join(' ')}\n`;
 };
 
-document.querySelector('button').addEventListener('click', run);
+document.querySelector('button').addEventListener('click', () => run(() => {
+  console.log('Done!');
+}));
 </script>
 </body>
 </html>

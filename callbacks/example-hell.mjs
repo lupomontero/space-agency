@@ -86,7 +86,7 @@ export const run = (cb) => {
 };
 
 
-if (process.env.NODE_ENV !== 'test') {
+if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'test') {
   run((err) => {
     if (err) {
       console.error(err);
