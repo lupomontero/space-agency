@@ -78,15 +78,16 @@ cuatro propiedades: `rocket`, `crew`, `fuel` y `launchPad`. Cada una de estas
 propiedades contiene el resultado de invocar a las funciones que nos da la
 librería.
 
-En el ejemplo de arriba asumimos que estamos usando la versión síncrona de la
-librería, y por tanto las funciones `buildRocket` y compañia van a tomar el
-_control_, bloqueando el hilo de ejecución, y una vez hayan terminado de hacer
-lo que tengan que hacer nos _retornan_ el resultado de la operación y nos
-devuelven el _control_ - en el caso de `buildRocket`, esta función _retorna_ un
-objeto `rocket` (el cohete), el cual podemos asignar a una variable en el ámbito
-(scope) desde donde iniciamos la tarea. Esto hace que sin mucho esfuerzo podamos
-tener los cuatro resultados en el mismo ámbito, lo cual necesitamos para
-retornar un objeto que contenga los cuatro.
+En el ejemplo de arriba asumimos que estamos usando la
+[versión síncrona de la librería](./sync/index.mjs), y por tanto las funciones
+`buildRocket` y compañia van a tomar el _control_, bloqueando el hilo de
+ejecución, y una vez hayan terminado de hacer lo que tengan que hacer nos
+_retornan_ el resultado de la operación y nos devuelven el _control_ - en el
+caso de `buildRocket`, esta función _retorna_ un objeto `rocket` (el cohete), el
+cual podemos asignar a una variable en el ámbito (scope) desde donde iniciamos
+la tarea. Esto hace que sin mucho esfuerzo podamos tener los cuatro resultados
+en el mismo ámbito, lo cual necesitamos para retornar un objeto que contenga los
+cuatro.
 
 Pero, ... :warning: esta implementación tiene un problema **grave**. Asumimos
 que las funciones de la librería van a requerir un tiempo (probablemente largo)
@@ -104,7 +105,7 @@ muchos motivos, pero principalmente 2:
   atender nuevas consultas :shit:
 
 [Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/sync/)
-como la ejecución de nuestro programa bloquea el hilo y no permite que se
+cómo la ejecución de nuestro programa bloquea el hilo y no permite que se
 actualice la interfaz hasta que no termine.
 
 #### Código asíncrono secuencial no-bloqueante
@@ -115,11 +116,11 @@ necesitamos.
 
 ##### Callback Hell
 
-Pasemos a usar la implementación de la librería basada en callbacks. Ahora,
-cuando aterrizamos en el mundo de JavaScript es común caer en situaciones en las
-cuales, a partir de lógica como la que hemos visto en el primer ejemplo de
-ejecución síncrona, terminamos escribiendo cosas como lo siguiente al tratar de
-amoldarnos a la _interfaz_ de _callbacks_:
+Pasemos a usar la [implementación de la librería basada en callbacks](./callbacks/index.mjs).
+Ahora, cuando aterrizamos en el mundo de JavaScript es común caer en situaciones
+en las cuales, a partir de lógica como la que hemos visto en el primer ejemplo
+de ejecución síncrona, terminamos escribiendo cosas como lo siguiente al tratar
+de amoldarnos a la _interfaz_ de _callbacks_:
 
 ```js
 const initMission = (cb) => {
@@ -170,16 +171,16 @@ diste cuenta de que este ejemplo se llama _callback hell_, y como puedes ver,
 al _continuar_ la ejecución del programa a través de los callbacks, rápidamente
 nuestro código se va anidando, con un montón de repetición en el manejo de
 errores, y poco a poco se hace cada vez más difícil de entender. Para ver un
-ejemplo más obvio de cómo aumenta la claridad de nuestro código
+ejemplo más obvio de cómo aumenta la complejidad de nuestro código,
 [acá](./callbacks/example-hell.mjs) puedes ver una _misión_ de ejemplo usando
 este enfoque _naive_ de callbacks produciendo un _callback hell_ horroroso
 :fire:
 
 [Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/hell.html)
-como evitamos bloquear el hilo con callbacks, pero todavía hacemos las tareas de
-forma secuencial, como en el ejemplo de arriba. Fíjate que ahora que ya no
-bloqueamos el hilo el navegador ahora sí tiene la oportunidad de actualizar el
-DOM durante la ejecución.
+cómo evitamos bloquear el hilo con callbacks. Fíjate que, ahora que ya no
+bloqueamos el hilo, el navegador ahora sí tiene la oportunidad de actualizar el
+DOM durante la ejecución. Eso sí, al seguir siendo secuencial, toavía demora
+aprox. 20 segundos en completarse.
 
 ##### Promesas encadenadas acumulando resultados
 
@@ -384,7 +385,7 @@ const initMission = cb => concurrent({
 ```
 
 [Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/callbacks/)
-como evitamos bloquear el hilo con callbacks, y hacemos las tareas de forma
+cómo evitamos bloquear el hilo con callbacks, y hacemos las tareas de forma
 concurrente, como en el ejemplo de arriba. Fíjate que ahora que hacemos las
 tareas de `initMission` de forma concurrente, el tiempo total de la _misión_ ha
 disminuido considerablemente (de veintitantos segundos a 11!).
@@ -424,7 +425,7 @@ también rechazada.
 
 
 [Acá puedes ver en una interfaz web](https://lupomontero.github.io/space-agency/promises/)
-como se comporta esta implementación que hace uso de promesas y concurrencia con
+cómo se comporta esta implementación que hace uso de promesas y concurrencia con
 `Promise.all` como en el ejemplo de arriba.
 
 ## Implementaciones de ejemplo
