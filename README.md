@@ -1,9 +1,9 @@
 # space-agency
 
 Este repo contiene una serie de ejemplos de ejecución _síncrona_ vs _asíncrona_,
-así como _secuencial_ (en _series_) vs _concurrente_ en JavaScript. En
-particular los ejemplos están orientados a ilustrar diferentes estrategias para
-_orquestar_ varias tareas asíncronas, y no una sola de forma aislada.
+así como _secuencial_ vs _concurrente_ en JavaScript. En particular los ejemplos
+están orientados a ilustrar diferentes estrategias para _orquestar_ varias
+tareas asíncronas, y no una sola de forma aislada.
 
 :information_source: Si todavía no estás familiarizada con los conceptos básicos
 de _asíncronía_, _callbacks_ y _promesas_ en JavaScript, no pasa nada, pero te
@@ -191,7 +191,7 @@ aprox. 20 segundos en completarse.
 ##### Promesas encadenadas acumulando resultados
 
 Existen varias estrategias para mitigar el _callback hell_, y si nuestra
-intención es ejecutar tareas asíncronas en series, de forma secuencial, podemos
+intención es ejecutar tareas asíncronas en serie, de forma secuencial, podemos
 valernos de que las promesas se pueden encadenar a través de su `.then`.
 
 Si no nos interesara el valor al que resuelven las promesas, podríamos imaginar
