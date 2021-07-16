@@ -1,11 +1,16 @@
 import { buildRocket, fetchCrew, getFuel, bookLaunchPad } from './index.mjs';
 
-export const run = () => {
-  const start = Date.now();
+const initMission = () => {
   const rocket = buildRocket();
   const crew = fetchCrew();
   const fuel = getFuel();
   const launchPad = bookLaunchPad();
+  return { rocket, crew, fuel, launchPad };
+};
+
+export const run = () => {
+  const start = Date.now();
+  const { rocket, crew, fuel, launchPad } = initMission();
 
   launchPad.addRocket(rocket);
 
