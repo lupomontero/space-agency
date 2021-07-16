@@ -1,30 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`integration (hell) should run the whole mission in 11 seconds! 1`] = `
+exports[`integration (hell) should run the whole mission in 20 seconds! 1`] = `
 Array [
   Array [
+    "initMission",
+  ],
+  Array [
     "Building rocket...",
-  ],
-  Array [
-    "Fetching crew...",
-  ],
-  Array [
-    "Getting fuel...",
-  ],
-  Array [
-    "Booking launch pad...",
-  ],
-  Array [
-    "Fuel ready!",
-  ],
-  Array [
-    "Crew ready!",
   ],
   Array [
     "Rocket built!",
   ],
   Array [
+    "Fetching crew...",
+  ],
+  Array [
+    "Crew ready!",
+  ],
+  Array [
+    "Getting fuel...",
+  ],
+  Array [
+    "Fuel ready!",
+  ],
+  Array [
+    "Booking launch pad...",
+  ],
+  Array [
     "Launch pad booked!",
+  ],
+  Array [
+    Object {
+      "addCrew": [Function],
+      "addFuel": [Function],
+      "altitude": 400,
+      "engineIsFiring": [Function],
+      "engines": Array [
+        Object {
+          "isFiring": false,
+        },
+        Object {
+          "isFiring": false,
+        },
+      ],
+      "fireEngine": [Function],
+      "runStageSeparation": [Function],
+      "speed": 28000,
+      "stopEngine": [Function],
+    },
+    Array [
+      Object {
+        "name": "Pepito Pérez",
+      },
+      Object {
+        "name": "Manolita Fernández",
+      },
+    ],
+    Object {},
+    Object {
+      "addRocket": [Function],
+    },
   ],
   Array [
     "Adding rocket to launch pad...",
@@ -195,7 +230,7 @@ Array [
     "Stage 1 separation completed...",
   ],
   Array [
-    "Total time: 11 secs",
+    "Total time: 20 secs",
   ],
 ]
 `;

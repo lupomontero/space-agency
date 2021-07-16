@@ -11,6 +11,8 @@ afterEach(() => {
   consoleLogSpy.mockRestore();
 });
 
+jest.setTimeout(30 * 1000);
+
 describe('buildRocket', () => {
   it('should return a rocket in 5 seconds', async () => {
     const start = Date.now();

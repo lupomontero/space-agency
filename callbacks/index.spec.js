@@ -12,6 +12,8 @@ afterEach(() => {
   consoleLogSpy.mockRestore();
 });
 
+jest.setTimeout(30 * 1000);
+
 describe('buildRocket', () => {
   it('should return a rocket in 5 seconds', (done) => {
     const start = Date.now();
@@ -83,11 +85,11 @@ describe('integration', () => {
 });
 
 describe('integration (hell)', () => {
-  it('should run the whole mission in 11 seconds!', (done) => {
+  it('should run the whole mission in 20 seconds!', (done) => {
     const start = Date.now();
-    run((err) => {
+    runHell((err) => {
       expect(err).toBeFalsy();
-      expect(Math.floor((Date.now() - start) / 1000)).toBe(11);
+      expect(Math.floor((Date.now() - start) / 1000)).toBe(20);
       expect(consoleLogSpy.mock.calls).toMatchSnapshot();
       done();
     });
